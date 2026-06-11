@@ -24,7 +24,7 @@ const enDescriptions = import.meta.glob('../../project-descriptions/*/descripcio
 const esContent = await esDescriptions[`../../project-descriptions/${project}/descripcion.md`]() as string;
 const enContent = await enDescriptions[`../../project-descriptions/${project}/descripcion.en.md`]() as string;
 
-// Load images
+// Load images (we handle this dynamically if they exist, but we deleted the default ones as they are unrelated)
 const allImages = import.meta.glob('../../assets/*/*.{png,jpg,jpeg,webp}', { eager: true });
 const projectImages = Object.keys(allImages)
     .filter(path => path.includes(`/${project}/`))
@@ -36,7 +36,7 @@ const translations = {
     stack: { en: 'Technologies', es: 'Tecnologías' },
     links: { en: 'Links', es: 'Enlaces' },
     inDevelopment: { en: 'In Development', es: 'En desarrollo' },
-    customSoftware: { en: 'Custom Software', es: 'Software a medida' }
+    customSoftware: { en: 'Enterprise Platform', es: 'Plataforma empresarial' }
 };
 
 function parseProjectData(content: string) {
@@ -63,7 +63,7 @@ const esData = parseProjectData(esContent);
 const enData = parseProjectData(enContent);
 ---
 
-<Layout title={`${project} | Javier Castillo`}>
+<Layout title={`${project} | Brian Moir`}>
 	<Header />
 	
 	<main class="min-h-screen px-4 sm:px-6 md:px-6">
@@ -73,11 +73,11 @@ const enData = parseProjectData(enContent);
 			</a>
 
 			<header class="mb-12">
-				<h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+				<h1 class="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6 font-display">
 					<span class="locale-es">{esData.title}</span>
 					<span class="locale-en">{enData.title}</span>
 				</h1>
-				<p class="text-lg text-gray-600 dark:text-gray-400">
+				<p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
 					<span class="locale-es">{esData.summary}</span>
 					<span class="locale-en">{enData.summary}</span>
 				</p>
@@ -132,29 +132,9 @@ const enData = parseProjectData(enContent);
 							{translations.gallery.en}
 						</h2>
 						<div class="grid grid-cols-1 gap-8">
-							{projectImages.map((src, i) => (
+							{projectImages.map((src) => (
 								<div class="relative rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
 									<img src={src} alt={`Project screenshot`} class="w-full h-auto" loading="lazy" />
-									
-									{/* Status Badges */}
-									{i === 0 && (project === 'HeyFood' || project === 'MINIPOS') && (
-										<div class="absolute top-4 left-4">
-											<div class="px-3 py-1.5 rounded-full bg-black/60 dark:bg-white/10 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-widest text-white">
-												{project === 'HeyFood' && (
-													<>
-														<span class="locale-es">{translations.inDevelopment.es}</span>
-														<span class="locale-en">{translations.inDevelopment.en}</span>
-													</>
-												)}
-												{project === 'MINIPOS' && (
-													<>
-														<span class="locale-es">{translations.customSoftware.es}</span>
-														<span class="locale-en">{translations.customSoftware.en}</span>
-													</>
-												)}
-											</div>
-										</div>
-									)}
 								</div>
 							))}
 						</div>

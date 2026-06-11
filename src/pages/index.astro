@@ -2,8 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import heroPhoto from '../assets/photo.jpeg';
-import cvFile from '../assets/CV/CV_Javier_Castillo.pdf';
+import cvFile from '../assets/CV/CV_Brian_Moir.pdf';
 
 const translations = {
   greeting: { 
@@ -11,12 +10,12 @@ const translations = {
     es: "Hola, soy" 
   },
   name: { 
-    en: "Javier Castillo", 
-    es: "Javier Castillo" 
+    en: "Brian Moir", 
+    es: "Brian Moir" 
   },
   description: { 
-    en: "Technologist in Information Systems and Full Stack Developer with more than 2 years of experience, specialized in creating modern, scalable and user-centered solutions.", 
-    es: "Tecnólogo en Sistemas de información y Desarrollador Full Stack con más de 2 años de experiencia, especializado en crear soluciones modernas, escalables y centradas en el usuario." 
+    en: "AI & ML Engineer and DevOps & Solutions Engineer specialized in scalable multi-tenant platforms, autonomous agent systems, and developer tooling.", 
+    es: "Ingeniero de IA y ML e Ingeniero de DevOps y Soluciones, especializado en plataformas multiinquilino escalables, sistemas de agentes autónomos y herramientas para desarrolladores." 
   },
   availability: {
     en: "Open to work",
@@ -31,8 +30,8 @@ const translations = {
     es: "Contactar" 
   },
 	roleTitle: {
-		en: "Full Stack Developer",
-		es: "Full Stack Developer"
+		en: "AI & ML Engineer",
+		es: "Ingeniero de IA y ML"
 	},
 	downloadCv: {
 		en: "Download CV",
@@ -43,18 +42,44 @@ const translations = {
     es: "Sobre mí" 
   },
   aboutDesc: {
-    es: "Soy Desarrollador Full Stack con experiencia en la creación de aplicaciones web completas, desde el diseño de la arquitectura hasta la implementación y despliegue. Trabajo integrando APIs, bases de datos y servicios modernos, con foco en rendimiento, mantenibilidad y experiencia de usuario. Me adapto bien a equipos colaborativos, sigo buenas prácticas de desarrollo y busco entregar soluciones estables que aporten valor real al negocio. Estoy interesado en oportunidades remotas o híbridas donde pueda seguir creciendo profesionalmente y contribuir a proyectos bien estructurados.",
-    en: "I am a Full Stack Developer with experience building end-to-end web applications, from architecture design to implementation and deployment. I work integrating APIs, databases, and modern services, with a focus on performance, maintainability, and user experience. I adapt well to collaborative teams, follow development best practices, and aim to deliver stable solutions that bring real business value. I am interested in remote or hybrid opportunities where I can continue growing professionally and contribute to well-structured projects."
+    es: "Soy un Ingeniero de Infraestructura de IA y Arquitecto especializado en plataformas escalables multiinquilino, sistemas de agentes autónomos y herramientas para desarrolladores. Cuento con una sólida capacidad para desarrollar y lanzar rápidamente herramientas de IA listas para producción, pipelines de automatización y aplicaciones impulsadas por datos utilizando arquitecturas serverless, Next.js y Cloudflare Workers. Me apasiona diseñar APIs intuitivas para desarrolladores, optimizar despliegues orientados al borde (edge-first) y hacer que la infraestructura de IA de código abierto sea altamente accesible y escalable.",
+    en: "I am an AI Infrastructure Engineer and Architect specializing in scalable multi-tenant platforms, autonomous agent systems, and developer tooling. I have a proven ability to rapidly ship production-ready AI tools, automation pipelines, and data-driven applications using serverless architectures, Next.js, and Cloudflare Workers. I am passionate about designing developer-friendly APIs, optimizing edge-first deployments, and making open-source AI infrastructure highly accessible and scalable."
   },
   tech: { 
-    en: "Tech Stack", 
-    es: "Tecnologías" 
+    en: "Featured Technical Skills", 
+    es: "Habilidades Técnicas Destacadas" 
   }
 };
 
+const technicalSkills = [
+  { name: "LLMs & RAG", type: "AI & Data Systems" },
+  { name: "Hugging Face Ecosystem", type: "AI & Data Systems" },
+  { name: "Vector Databases", type: "AI & Data Systems" },
+  { name: "Semantic Search", type: "AI & Data Systems" },
+  { name: "Cloudflare Workers AI", type: "AI & Data Systems" },
+  { name: "AI Gateway", type: "AI & Data Systems" },
+  { name: "Agent Sandboxes", type: "AI & Data Systems" },
+  { name: "AI Governance & Compliance", type: "AI & Data Systems" },
+  { name: "Cloudflare Workers", type: "Cloud & Infrastructure" },
+  { name: "AWS & Google Cloud", type: "Cloud & Infrastructure" },
+  { name: "Serverless Architecture", type: "Cloud & Infrastructure" },
+  { name: "Terraform / OpenTofu", type: "Cloud & Infrastructure" },
+  { name: "CI/CD (GitHub Actions, GitLab)", type: "Cloud & Infrastructure" },
+  { name: "Docker & Kubernetes", type: "Cloud & Infrastructure" },
+  { name: "Model Context Protocol (MCP)", type: "Cloud & Infrastructure" },
+  { name: "Vercel AI SDK", type: "Cloud & Infrastructure" },
+  { name: "Python", type: "Backend & Databases" },
+  { name: "Node.js & TypeScript", type: "Backend & Databases" },
+  { name: "PostgreSQL & Neon", type: "Backend & Databases" },
+  { name: "Supabase", type: "Backend & Databases" },
+  { name: "Cloudflare D1 & R2", type: "Backend & Databases" },
+  { name: "Redis & MongoDB", type: "Backend & Databases" },
+  { name: "Next.js & React", type: "Frontend & Workflows" },
+  { name: "n8n Workflow Automation", type: "Frontend & Workflows" }
+];
 ---
 
-<Layout title={`Home | Javier Castillo`}>
+<Layout title={`Home | Brian Moir`}>
 	<Header />
 	
 	<main class="min-h-screen px-4 sm:px-6 md:px-6">
@@ -62,8 +87,7 @@ const translations = {
 			<div class="flex flex-col items-center gap-6 sm:gap-8 text-center">
 				<div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
 					<div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full bg-gray-100 dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center overflow-hidden animated-border always-visible flex-shrink-0 shadow-lg dark:shadow-white/20">
-						<img src={heroPhoto.src} alt="Javier Castillo" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-						<span class="text-2xl sm:text-3xl md:text-4xl text-gray-500 dark:text-gray-400 hidden">📷</span>
+						<span class="text-3xl sm:text-4xl md:text-5xl text-gray-700 dark:text-gray-300">🤖</span>
 					</div>
 					<div class="animated-border always-visible px-3 sm:px-4 py-2 rounded-full border border-gray-300 dark:border-gray-600 h-fit">
 						<p class="text-xs sm:text-sm font-medium text-gray-900 dark:text-white whitespace-nowrap" data-en={translations.availability.en} data-es={translations.availability.es}>{translations.availability.en}</p>
@@ -74,8 +98,8 @@ const translations = {
 					<h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 px-2 sm:px-0" data-en={translations.name.en} data-es={translations.name.es}>
 						{translations.name.en}
 					</h1>
-					<p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-lg mx-auto mb-4 sm:mb-6 px-2 sm:px-0" data-en="Technologist in Information Systems and Full Stack Developer with more than 2 years of experience, specialized in creating modern, scalable and user-centered solutions." data-es="Tecnólogo en Sistemas de información y Desarrollador Full Stack con más de 2 años de experiencia, especializado en crear soluciones modernas, escalables y centradas en el usuario.">
-						<span class="font-semibold text-gray-900 dark:text-white">Technologist in Information Systems</span> and <span class="font-semibold text-gray-900 dark:text-white">Full Stack Developer</span> with more than 2 years of experience, specialized in creating modern, scalable and user-centered solutions.
+					<p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-4 sm:mb-6 px-2 sm:px-0" data-en="AI & ML Engineer and DevOps & Solutions Engineer specialized in scalable multi-tenant platforms, autonomous agent systems, and developer tooling." data-es="Ingeniero de IA y ML e Ingeniero de DevOps y Soluciones, especializado en plataformas multiinquilino escalables, sistemas de agentes autónomos y herramientas para desarrolladores.">
+						<span class="font-semibold text-gray-900 dark:text-white">AI & ML Engineer</span> and <span class="font-semibold text-gray-900 dark:text-white">DevOps & Solutions Engineer</span> specialized in scalable multi-tenant platforms, autonomous agent systems, and developer tooling.
 					</p>
 					<div class="flex flex-wrap gap-2 sm:gap-3 justify-center px-2 sm:px-0">
 						<a href="/projects" class="cursor-pointer px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-medium rounded-full hover:animated-bg transition-all" data-en={translations.viewProjects.en} data-es={translations.viewProjects.es}>
@@ -89,10 +113,10 @@ const translations = {
 						<article class="cv-download-card group" aria-label="Download CV card">
 							<div class="cv-download-card-inner">
 								<div class="text-gray-50 text-left">
-									<span class="cv-initials">Jr</span>
+									<span class="cv-initials">BM</span>
 									<p class="cv-role" data-en={translations.roleTitle.en} data-es={translations.roleTitle.es}>{translations.roleTitle.en}</p>
 								</div>
-								<a href={cvFile} download="CV_Javier_Castillo.pdf" class="cv-download-button" data-en={translations.downloadCv.en} data-es={translations.downloadCv.es}>
+								<a href={cvFile} download="CV_Brian_Moir.pdf" class="cv-download-button" data-en={translations.downloadCv.en} data-es={translations.downloadCv.es}>
 									<span>{translations.downloadCv.en}</span>
 									<svg class="w-5 h-5 fill-current" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 										<path d="M22.1,77.9a4,4,0,0,1,4-4H73.9a4,4,0,0,1,0,8H26.1A4,4,0,0,1,22.1,77.9ZM35.2,47.2a4,4,0,0,1,5.7,0L46,52.3V22.1a4,4,0,1,1,8,0V52.3l5.1-5.1a4,4,0,0,1,5.7,0,4,4,0,0,1,0,5.6l-12,12a3.9,3.9,0,0,1-5.6,0l-12-12A4,4,0,0,1,35.2,47.2Z" fill-rule="evenodd"></path>
@@ -120,69 +144,19 @@ const translations = {
 			
 			<div class="tech-ticker-container">
 				<div class="tech-ticker-content">
-					<!-- First set -->
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">JavaScript</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">TypeScript</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">React</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">Next.js</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">Astro</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">Tailwind CSS</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">Node.js</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">PostgreSQL</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">MongoDB</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">Docker</p>
-					</div>
+					{/* First set */}
+					{technicalSkills.map((skill) => (
+						<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
+							<p class="text-sm font-medium text-gray-900 dark:text-white">{skill.name}</p>
+						</div>
+					))}
 					
-					<!-- Second set for seamless looping -->
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">JavaScript</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">TypeScript</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">React</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">Next.js</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">Astro</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">Tailwind CSS</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">Node.js</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">PostgreSQL</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">MongoDB</p>
-					</div>
-					<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
-						<p class="text-sm font-medium text-gray-900 dark:text-white">Docker</p>
-					</div>
+					{/* Second set for seamless looping */}
+					{technicalSkills.map((skill) => (
+						<div class="cursor-pointer px-4 py-2 rounded-full bg-transparent border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all hover:scale-105 whitespace-nowrap">
+							<p class="text-sm font-medium text-gray-900 dark:text-white">{skill.name}</p>
+						</div>
+					))}
 				</div>
 			</div>
 		</section>
